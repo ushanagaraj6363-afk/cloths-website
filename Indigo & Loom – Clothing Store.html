@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Indigo &amp; Loom – Clothing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F4F7;--surface:#FFFFFF;--ink:#14193A;--muted:#5D6280;--line:#D9DCE6;--indigo:#1E2A6B;--on-indigo:#F3F4F7;--gold:#F2A900;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1129;--surface:#161B3C;--ink:#ECEEF8;--muted:#9AA0C4;--line:#2A3066;--indigo:#0A0E22;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D1129;--surface:#161B3C;--ink:#ECEEF8;--muted:#9AA0C4;--line:#2A3066;--indigo:#0A0E22;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 'DM Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;margin:0}
+a{color:inherit}button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.logo{font:400 1.6rem 'Instrument Serif',serif;text-decoration:none;margin-right:auto}
+nav a.l{text-decoration:none;font-size:.95rem;color:var(--muted)}
+nav a.l:hover{color:var(--ink)}
+.cartbtn{background:var(--indigo);color:var(--on-indigo);border:0;border-radius:99px;padding:8px 16px;font-weight:500}
+.hero{background:var(--indigo);color:var(--on-indigo);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding-top:64px;padding-bottom:64px}
+.hero h1{font-size:clamp(3rem,8vw,5.8rem);line-height:.95;letter-spacing:-.02em}
+.hero h1 em{color:var(--gold)}
+.hero p{max-width:30em;opacity:.85;font-size:1.1rem;margin:20px 0 28px}
+.btn{display:inline-block;background:var(--gold);color:#14193A;font-weight:700;text-decoration:none;border:0;border-radius:6px;padding:13px 24px}
+.btn.alt{background:transparent;color:inherit;border:1px solid currentColor;margin-left:8px}
+.swatch{aspect-ratio:1;border-radius:4px;position:relative}
+.hero .swatch{aspect-ratio:4/5;border:10px solid var(--on-indigo);transform:rotate(2deg)}
+.p1{background:repeating-linear-gradient(90deg,#2B3A8C 0 14px,#F3F4F7 14px 18px,#2B3A8C 18px 40px,#F2A900 40px 44px)}
+.p2{background:radial-gradient(circle at 50% 50%,#F2A900 0 8px,transparent 9px) 0 0/28px 28px,#1E2A6B}
+.p3{background:repeating-linear-gradient(45deg,#8A1C3B 0 10px,#C9455F 10px 20px)}
+.p4{background:linear-gradient(#E8DCC4 0 50%,#D4C4A0 50%) ,#E8DCC4;background-size:100% 12px}
+.p5{background:repeating-linear-gradient(0deg,#1F5B4A 0 6px,#2D7A63 6px 12px),#1F5B4A}
+.p6{background:conic-gradient(from 45deg at 50% 50%,#14193A 0 25%,#3B4AA8 0 50%,#14193A 0 75%,#3B4AA8 0) 0 0/36px 36px}
+.p7{background:repeating-linear-gradient(135deg,#F2A900 0 4px,#FBE29A 4px 16px)}
+.p8{background:linear-gradient(90deg,#B9C0D8 0 33%,#8E98BF 33% 66%,#5B67A0 66%)}
+section{padding:64px 0}
+.head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:14px;margin-bottom:28px}
+.head h2{font-size:clamp(2rem,5vw,3rem)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:99px;padding:7px 16px}
+.tab[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+.card .swatch{margin-bottom:12px}
+.card h3{font-size:1.35rem}
+.card .m{color:var(--muted);font-size:.9rem}
+.card .b{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.card b{font-weight:700}
+.add{background:none;border:1px solid var(--ink);color:var(--ink);border-radius:6px;padding:6px 14px;font-weight:500}
+.add:hover{background:var(--ink);color:var(--bg)}
+.story{background:var(--surface);border-block:1px solid var(--line)}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.story h2{font-size:clamp(2rem,5vw,3rem)}
+.story p{color:var(--muted);margin:0 0 14px}
+.facts{display:grid;gap:18px}
+.facts div{border-left:3px solid var(--gold);padding-left:14px}
+.facts b{display:block;font-size:1.05rem}
+.facts span{color:var(--muted);font-size:.95rem}
+.contact form{display:grid;gap:12px;max-width:520px}
+input,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px;width:100%}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+#drawer{position:fixed;inset:0 0 0 auto;width:min(400px,100%);background:var(--surface);border-left:1px solid var(--line);z-index:20;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;padding:20px;padding-top:calc(20px + env(safe-area-inset-top,0px));padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+#drawer.open{transform:none}
+#drawer h2{font-size:2rem;display:flex;justify-content:space-between;align-items:center}
+#items{flex:1;overflow:auto;margin:12px 0}
+.line{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.line .swatch{width:48px;aspect-ratio:1}
+.q{display:flex;gap:6px;align-items:center;margin-top:4px}
+.q button{width:26px;height:26px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:4px}
+.tot{display:flex;justify-content:space-between;font-weight:700;font-size:1.2rem;margin-bottom:12px}
+.x{background:none;border:0;color:var(--ink);font-size:1.6rem}
+@media (max-width:760px){.hero .wrap,.story .wrap{grid-template-columns:1fr}.hero .swatch{aspect-ratio:16/9}nav a.l{display:none}}
+@media (prefers-reduced-motion:reduce){#drawer{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+<a class="logo" href="#top">Indigo &amp; Loom</a>
+<a class="l" href="#shop">Shop</a><a class="l" href="#story">Our story</a><a class="l" href="#contact">Contact</a>
+<button class="cartbtn" id="open">Cart (<span id="n">0</span>)</button>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<div>
+<h1>Cloth made to be <em>lived in.</em></h1>
+<p>Handwoven cottons, soft linens and everyday kurtas, cut and stitched in Bengaluru. Order online, delivered across India.</p>
+<a class="btn" href="#shop">Shop the collection</a><a class="btn alt" href="#story">Our story</a>
+</div>
+<div class="swatch p1" role="img" aria-label="Indigo striped handloom fabric"></div>
+</div></header>
+
+<section id="shop"><div class="wrap">
+<div class="head"><h2>The collection</h2>
+<div class="tabs" id="tabs"></div></div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section class="story" id="story"><div class="wrap">
+<div><h2>Slow cloth, honest prices.</h2>
+<p>We work directly with weaving clusters and local tailors, so you pay for the fabric and the craft, not for layers of middlemen.</p>
+<p>Every piece is washed and checked before it ships. If it doesn’t fit, exchange it within 7 days.</p></div>
+<div class="facts">
+<div><b>Natural fabrics</b><span>Cotton, linen and khadi that breathe in Bengaluru weather.</span></div>
+<div><b>Made-to-measure</b><span>Send your measurements and we will stitch to fit.</span></div>
+<div><b>Easy exchanges</b><span>Free size exchange within 7 days of delivery.</span></div>
+</div></div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+<div class="head"><h2>Visit or message us</h2></div>
+<form id="cf"><input id="cn" placeholder="Your name" aria-label="Your name" required>
+<input id="cp" placeholder="Phone number" aria-label="Phone number" required>
+<textarea id="cm" rows="4" placeholder="What are you looking for?" aria-label="Message"></textarea>
+<button class="btn" type="submit">Send on WhatsApp</button></form>
+</div></section>
+<footer><div class="wrap">© 2026 Indigo &amp; Loom. Sample brand and products: replace with your own name, prices and WhatsApp number.</div></footer>
+
+<aside id="drawer" aria-label="Shopping cart" aria-hidden="true">
+<h2>Your cart <button class="x" id="close" aria-label="Close cart">×</button></h2>
+<div id="items"></div>
+<div class="tot"><span>Total</span><span id="total">₹0</span></div>
+<button class="btn" id="order">Order on WhatsApp</button>
+</aside>
+
+<script>
+var PHONE="919999999999"; // replace with your WhatsApp number, country code first
+var P=[
+{id:1,n:"Indigo Stripe Kurta",c:"Men",p:1499,s:"p1",m:"Handloom cotton"},
+{id:2,n:"Marigold Dot Shirt",c:"Men",p:1299,s:"p2",m:"Soft cotton"},
+{id:3,n:"Madder Twill Dress",c:"Women",p:2199,s:"p3",m:"Cotton twill"},
+{id:4,n:"Oat Linen Co-ord",c:"Women",p:2799,s:"p4",m:"Pure linen"},
+{id:5,n:"Forest Ribbed Kurti",c:"Women",p:1599,s:"p5",m:"Cotton rib"},
+{id:6,n:"Night Check Fabric, 1 m",c:"Fabric",p:449,s:"p6",m:"Handwoven cotton"},
+{id:7,n:"Saffron Pinstripe Fabric, 1 m",c:"Fabric",p:399,s:"p7",m:"Cotton voile"},
+{id:8,n:"Dusk Block Dupatta",c:"Women",p:899,s:"p8",m:"Mul cotton"}
+];
+var cart={},cat="All",$=function(i){return document.getElementById(i)};
+function inr(n){return "₹"+n.toLocaleString("en-IN")}
+function tabs(){var c=["All","Women","Men","Fabric"];$("tabs").innerHTML=c.map(function(x){return '<button class="tab" aria-pressed="'+(x===cat)+'" data-c="'+x+'">'+x+'</button>'}).join("")}
+function grid(){$("grid").innerHTML=P.filter(function(x){return cat==="All"||x.c===cat}).map(function(x){
+return '<article class="card"><div class="swatch '+x.s+'" role="img" aria-label="'+x.m+' swatch"></div><h3>'+x.n+'</h3><div class="m">'+x.m+'</div><div class="b"><b>'+inr(x.p)+'</b><button class="add" data-id="'+x.id+'">Add</button></div></article>'}).join("")}
+function draw(){
+var ids=Object.keys(cart),t=0,q=0;
+$("items").innerHTML=ids.length?ids.map(function(i){var x=P.filter(function(y){return y.id==i})[0],k=cart[i];t+=x.p*k;q+=k;
+return '<div class="line"><div class="swatch '+x.s+'"></div><div><div>'+x.n+'</div><div class="q"><button data-d="-1" data-id="'+i+'" aria-label="Decrease">−</button>'+k+'<button data-d="1" data-id="'+i+'" aria-label="Increase">+</button></div></div><b>'+inr(x.p*k)+'</b></div>'}).join(""):'<p style="color:var(--muted)">Your cart is empty. Add something from the collection.</p>';
+$("n").textContent=q;$("total").textContent=inr(t);$("order").disabled=!ids.length}
+function wa(t){window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(t),"_blank","noopener")}
+function panel(o){$("drawer").classList.toggle("open",o);$("drawer").setAttribute("aria-hidden",!o)}
+document.addEventListener("click",function(e){var t=e.target;
+if(t.dataset.c){cat=t.dataset.c;tabs();grid()}
+if(t.classList.contains("add")){cart[t.dataset.id]=(cart[t.dataset.id]||0)+1;draw();panel(true)}
+if(t.dataset.d){var i=t.dataset.id;cart[i]+=+t.dataset.d;if(cart[i]<1)delete cart[i];draw()}});
+$("open").onclick=function(){panel(true)};$("close").onclick=function(){panel(false)};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")panel(false)});
+$("order").onclick=function(){var l=["Hi, I would like to order:"],t=0;
+Object.keys(cart).forEach(function(i){var x=P.filter(function(y){return y.id==i})[0];l.push(cart[i]+" × "+x.n+" – "+inr(x.p*cart[i]));t+=x.p*cart[i]});
+l.push("Total: "+inr(t));wa(l.join("\n"))};
+$("cf").onsubmit=function(e){e.preventDefault();wa("Hi, I’m "+$("cn").value+" ("+$("cp").value+"). "+$("cm").value)};
+tabs();grid();draw();
+</script>
+</body>
+</html>
